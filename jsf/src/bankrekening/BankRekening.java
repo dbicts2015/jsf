@@ -18,10 +18,9 @@ public class BankRekening implements Serializable {
 	}
 
 	public void afhalen(BigDecimal bedrag) {
-		BigDecimal temp = saldo.add(bedrag.multiply(new BigDecimal(-1)));
-		if (temp.signum() < 0)
+		if (saldo.subtract(bedrag).signum() < 0)
 			throw new IllegalStateException("Saldo ontoereikend.");
-		saldo = temp;
+		saldo = saldo.subtract(bedrag);
 	}
 
 	public BigDecimal getSaldo() {

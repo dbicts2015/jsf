@@ -8,6 +8,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Min;
 
 import bankrekening.BankRekening;
 
@@ -19,10 +20,12 @@ public class InputOutputBean implements Serializable {
 	
 	@Inject
 	private BankRekening rekening;
+
+	@Min(0)
 	private BigDecimal bedrag;
 	
 	public void storten() {
-			rekening.storten(bedrag);
+		rekening.storten(bedrag);
 	}
 
 	public void afhalen() {

@@ -9,8 +9,8 @@
 <h:form>
 Saldo: #{inputOutputBean.saldo}<br />
 bedrag: <h:inputText value="#{inputOutputBean.bedrag}"></h:inputText><br />
-<h:commandButton value="storten" action="#{inputOutputBean.storten}"></h:commandButton>
-<h:commandButton value="afhalen" action="#{inputOutputBean.afhalen}"></h:commandButton>
+<h:commandButton value="storten" action="#{inputOutputBean.storten()}"></h:commandButton>
+<h:commandButton value="afhalen" action="#{inputOutputBean.afhalen()}"></h:commandButton>
 </h:form>
 <h:messages style="color:red"></h:messages>
 </h:body>
