@@ -2,6 +2,7 @@ package beans;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -17,6 +18,7 @@ import bankrekening.BankRekening;
 public class InputOutputBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private static final DecimalFormat format = new DecimalFormat("0.00");
 	
 	@Inject
 	private BankRekening rekening;
@@ -44,8 +46,8 @@ public class InputOutputBean implements Serializable {
 		this.bedrag = bedrag;
 	}
 
-	public BigDecimal getSaldo() {
-		return rekening.getSaldo();
+	public String getSaldo() {
+		return format.format(rekening.getSaldo());
 	}
 
 }
