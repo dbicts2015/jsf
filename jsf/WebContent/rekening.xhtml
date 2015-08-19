@@ -4,10 +4,19 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Insert title here</title>
+	<style>
+	.rood {
+		background-color: red;
+	}
+
+	.wit {
+		background-color: white;
+	}
+	</style>
 </h:head>
 <h:body>
 <h:form>
-Saldo: #{inputOutputBean.saldo}<br />
+Saldo: <span class="#{inputOutputBean.kleur}">#{inputOutputBean.saldo}</span><br />
 bedrag: <h:inputText type="number" step="0.01" value="#{inputOutputBean.bedrag}"></h:inputText><br />
 <h:commandButton value="storten" action="#{inputOutputBean.storten()}"></h:commandButton>
 <h:commandButton value="afhalen" action="#{inputOutputBean.afhalen()}"></h:commandButton>

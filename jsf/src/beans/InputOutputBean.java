@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.event.Observes;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -12,6 +13,7 @@ import javax.inject.Named;
 import javax.validation.constraints.Min;
 
 import bankrekening.BankRekening;
+import bankrekening.BankRekeningEvent;
 
 @Named
 @RequestScoped
@@ -25,6 +27,16 @@ public class InputOutputBean implements Serializable {
 
 	@Min(0)
 	private BigDecimal bedrag;
+	
+	private String kleur = "wit";
+	
+	public void onRekeningNegatief(@Observes BankRekeningEvent event) {
+		kleur = "rood";
+	}
+	
+	public String getKleur() {
+		return kleur;
+	}
 	
 	public void storten() {
 		rekening.storten(bedrag);
