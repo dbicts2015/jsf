@@ -12,9 +12,9 @@ xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <div>Question ##{quiz.index}</div>
 <div>#{quiz.vraag}</div>
 
-<h:inputText rendered="${quiz.heeftVolgende()}" value="#{quiz.antwoord}"></h:inputText>
-<h:commandButton rendered="${quiz.heeftVorige()}" value="Vorige" action="#{quiz.previous()}"></h:commandButton>
-<h:commandButton rendered="${quiz.heeftVolgende()}" value="Volgende" action="#{quiz.next()}"></h:commandButton>
+<h:inputText rendered="#{quiz.heeftVolgende()}" value="#{quiz.antwoord}"></h:inputText>
+<h:commandButton rendered="#{quiz.heeftVorige()}" value="Vorige" action="#{quiz.previous()}"></h:commandButton>
+<h:commandButton rendered="#{quiz.heeftVolgende()}" value="Volgende" action="#{quiz.next()}"></h:commandButton>
 </h:form>
 </h:body>
 </html>
