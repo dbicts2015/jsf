@@ -2,6 +2,9 @@ package speelkaart;
 
 import java.io.Serializable;
 
+import javax.enterprise.inject.Alternative;
+
+@Alternative
 public class SpeelKaart implements Serializable{
 
 	private static final long serialVersionUID = 1L;

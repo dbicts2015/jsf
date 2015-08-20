@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import speelkaart.SpeelKaart;
-import speelkaart.SpeelkaartenBoek;
 
 @Named("kaartenboek")
 @RequestScoped
@@ -15,15 +14,10 @@ public class IOSpeelKaartenBoek implements Serializable {
 
 	private static final long serialVersionUID = 341580925865145361L;
 
-	@Inject private SpeelkaartenBoek boek;
-	
-	public String getKaart() {
-		SpeelKaart kaart = boek.geefKaart();
-		return kaart == null ? "Er zijn geen kaarten meer." : kaart.getOmschrijving();
-	}
+	@Inject private SpeelKaart kaart;
 
-	public void schud() {
-		boek.schud();
+	public String getKaart() {
+		return kaart == null ? "Er zijn geen kaarten meer." : kaart.getOmschrijving();
 	}
 
 }

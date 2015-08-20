@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title>Demo lifecycle en scope van managed beans</title>
+</head>
+<body>
+<h3>Vraag deze pagina eens meermaals op in dezelfde browsersessie en ook in verschillende browsers</h3>
+<h:form>
+<h1>bean met request scope: #{requestTeller.teller}</h1>
+<h:commandButton value="verhoog" action="#{requestTeller.verhoog}"></h:commandButton>
+</h:form>
+<h:form>
+<h1>bean met session scope: #{sessionTeller.teller}</h1>
+<h:commandButton value="verhoog" action="#{sessionTeller.verhoog}"></h:commandButton>
+</h:form>
+<h:form>
+<h1>bean met application scope: #{applicationTeller.teller}</h1>
+<h:commandButton value="verhoog" action="#{applicationTeller.verhoog}"></h:commandButton>
+</h:form>
+</body>
+</html>
